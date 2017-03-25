@@ -14,11 +14,9 @@ class LoginModel extends CI_Model{
 
 	if ($query->num_rows() == 1){
 		return true;
-	else{
+	}else{
 		return false;
 		}
-	}
-
 	}
 }
 ?>

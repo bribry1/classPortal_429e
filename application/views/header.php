@@ -26,7 +26,7 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.html">Class Portal</a>
             </div>
-					<?php include('sidebar.php');?>
+				
 		</nav>
         <div id="page-wrapper">
 
