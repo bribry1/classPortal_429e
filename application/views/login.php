@@ -9,6 +9,7 @@
 		<div>
 			<div>
 
+
 			<form role="form">
                  <div class="loginForm">
                  	<div class="col-lg-4">
@@ -21,7 +22,6 @@
                     </div>
             	 </div>
             </form>
-
 
 			</div>
          </div>
