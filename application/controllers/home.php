@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Home extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,6 +20,19 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('index.html');
+		$this->load->view('about');
+		//$this->getValues();
 	}
+	public function loginPage()
+	{
+		$this->load->view('login');
+		//$this->getValues();
+	}
+
+	// function getValues(){
+	// 	$this->load->model("get_db");
+
+	// 	$data['results'] = $this->get_db->getAll();
+	// 	$this->load->view("t",$data);
+	// }
 }

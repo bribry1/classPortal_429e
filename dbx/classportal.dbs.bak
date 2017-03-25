@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="localhost" id="Project_b7a8cda" template="Default" database="MySql" >
+	<schema name="classportaldb" catalogname="classportaldb" >
+		<table name="classes" >
+			<column name="id" type="int" jt="4" mandatory="y" autoincrement="y" />
+			<column name="fg" type="int" jt="4" />
+			<column name="mg" type="int" jt="4" />
+			<column name="studentid" type="int" jt="4" />
+			<index name="pk_classes" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="idx_classes" unique="NORMAL" >
+				<column name="studentid" />
+			</index>
+			<fk name="fk_classes" to_schema="classportaldb" to_table="students" >
+				<fk_column name="studentid" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="courses" >
+			<column name="id" type="int" length="10" decimal="0" jt="4" mandatory="y" autoincrement="y" />
+			<column name="courseid" type="int" jt="4" />
+			<column name="teacherID" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="courseCode" type="varchar" length="255" decimal="0" jt="12" mandatory="y" />
+			<column name="subject" type="varchar" length="255" decimal="0" jt="12" mandatory="y" />
+			<column name="courseGroup" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="classSchedule" type="varchar" length="255" decimal="0" jt="12" mandatory="y" />
+			<index name="pk_courses" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="idx_courses" unique="NORMAL" >
+				<column name="teacherID" />
+			</index>
+			<index name="idx_courses_0" unique="NORMAL" >
+				<column name="courseid" />
+			</index>
+			<fk name="fk_courses" to_schema="classportaldb" to_table="teachers" >
+				<fk_column name="teacherID" pk="id" />
+			</fk>
+			<fk name="fk_courses_0" to_schema="classportaldb" to_table="classes" >
+				<fk_column name="courseid" pk="id" />
+			</fk>
+		</table>
+		<table name="students" >
+			<column name="id" type="int" length="10" decimal="0" jt="4" mandatory="y" autoincrement="y" />
+			<column name="lastname" type="varchar" length="255" decimal="0" jt="12" mandatory="y" />
+			<column name="firstname" type="varchar" length="255" decimal="0" jt="12" mandatory="y" />
+			<column name="course" type="varchar" length="255" decimal="0" jt="12" mandatory="y" />
+			<column name="yearLevel" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="username" type="varchar" length="255" decimal="0" jt="12" mandatory="y" />
+			<column name="password" type="varchar" length="255" decimal="0" jt="12" mandatory="y" />
+			<index name="pk_students" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="teachers" >
+			<column name="id" type="int" length="10" decimal="0" jt="4" mandatory="y" autoincrement="y" />
+			<column name="lastname" type="varchar" length="255" decimal="0" jt="12" mandatory="y" />
+			<column name="firstname" type="varchar" length="255" decimal="0" jt="12" mandatory="y" />
+			<column name="username" type="varchar" length="255" decimal="0" jt="12" mandatory="y" />
+			<column name="password" type="varchar" length="255" decimal="0" jt="12" mandatory="y" />
+			<index name="pk_teachers" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+	</schema>
+	<connector name="localhost" database="MySql" driver_class="com.mysql.jdbc.Driver" driver_jar="mysql-connector-java-5.1.40-bin.jar" driver_desc="Standard" host="localhost" port="3306" user="root" />
+	<layout name="Default Layout" id="Layout_a826ed4" show_relation="columns" >
+		<entity schema="classportaldb" name="courses" color="bfd4f5" x="45" y="45" />
+		<entity schema="classportaldb" name="students" color="bfd4f5" x="210" y="45" />
+		<entity schema="classportaldb" name="teachers" color="bfd4f5" x="210" y="255" />
+	</layout>
+	<layout name="Sample - Sample Layout with Groups" id="Layout_3b160ad4" show_relation="columns" >
+		<entity schema="classportaldb" name="students" color="bfd4f5" x="330" y="135" />
+		<entity schema="classportaldb" name="teachers" color="bfd4f5" x="345" y="390" />
+		<entity schema="classportaldb" name="courses" color="bfd4f5" x="120" y="135" />
+		<entity schema="classportaldb" name="classes" color="c1d8ee" x="165" y="390" />
+		<callout x="45" y="75" pointer="NO" >
+			<comment><![CDATA[You may create multiple layouts with the same or different tables.
+Layouts will be saved to project file. 
+Double-click any column, foreign key or table headers to edit.]]></comment>
+		</callout>
+		<group name="courses" color="ecf0f7" >
+			<entity schema="classportaldb" name="courses" />
+			<entity schema="classportaldb" name="students" />
+			<entity schema="classportaldb" name="teachers" />
+		</group>
+		<browser id="Browse_ff43305" name="students" confirm_updates="y" >
+			<browse_table schema="classportaldb" entity="students" x="10" y="10" width="455" height="350" record_view="y" />
+		</browser>
+	</layout>
+	<layout name="Sample - Sample Layout with Relational Data Browse" id="Layout_1c2a3f6f" show_relation="columns" >
+		<entity schema="classportaldb" name="courses" color="bfd4f5" x="45" y="165" />
+		<entity schema="classportaldb" name="students" color="bfd4f5" x="210" y="165" />
+		<entity schema="classportaldb" name="teachers" color="bfd4f5" x="210" y="375" />
+		<callout x="45" y="45" pointer="NO" >
+			<comment><![CDATA[Use the Relational Data Browse for exploring data from multiple tables at a time.
+Tables should be bind by foreign keys - if they are not you can create VIRTUAL foreign keys in the layout. 
+Virtual foreign keys will be saved to project file.
+ 
+Descend into children tables by pressing the foreign key arrow icon near title.
+Right-click column headers in browse tables to set filters.]]></comment>
+		</callout>
+		<browser id="Browse_3023a08a" name="Sample Relational Data Browse" confirm_updates="y" >
+			<browse_table schema="classportaldb" entity="courses" x="10" y="10" width="400" height="300" />
+		</browser>
+	</layout>
+</project>
