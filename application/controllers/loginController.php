@@ -1,6 +1,6 @@
 <?php
 
-class LoginController extends CI_Model{
+class LoginController extends CI_Controller{
 
 	public function index(){
 
@@ -14,7 +14,7 @@ class LoginController extends CI_Model{
 		if($this->form_validation->run() == false){
 			$this->load->view('login');
 		}else{
-			redirect('Home/index')
+			redirect('Home/about');
 		}
 	}
 	public function verifyUser(){
