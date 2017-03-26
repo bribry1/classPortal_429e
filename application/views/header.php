@@ -10,9 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/sb-admin.css" rel="stylesheet">
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php $_SERVER['DOCUMENT_ROOT']?>/classPortal_429e/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php $_SERVER['DOCUMENT_ROOT']?>/classPortal_429e/assets/css/sb-admin.css" rel="stylesheet">
+    <link href="<?php $_SERVER['DOCUMENT_ROOT']?>/classPortal_429e/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <title><?php echo doTitle($pageTitle);?></title>
 </head>
@@ -26,7 +26,6 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.html">Class Portal</a>
             </div>
-					<?php include('sidebar.php');?>
 		</nav>
         <div id="page-wrapper">
 

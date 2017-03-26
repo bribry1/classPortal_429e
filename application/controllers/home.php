@@ -20,9 +20,20 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('home');
+		$this->load->model('get_db');
+		$data['classes'] = $this->get_db->getClasses('bryan');
+		
+		$this->load->view('teachers/index',$data);
 		//$this->getValues();
 	}
+	
+	public function classs()
+	{
+		$this->load->model('get_db');
+		$data['class'] = $this->get_db->getClassInfo($_POST['id']);
+		$this->load->view('teachers/class',$data);
+	}
+	
 	public function loginPage()
 	{
 		$this->load->view('login');
