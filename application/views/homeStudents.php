@@ -39,7 +39,12 @@
             <!-- /.navbar-collapse -->
             <!-- whiteArea -->
 
-
+                <?php
+                    foreach($results as $row) {
+                        echo $row->id." ";
+                        echo $row->lastname . "<br>";
+                    }
+                ?>
 
 
             <!-- ENDOFwhiteArea -->
@@ -48,7 +53,7 @@
 			</div>
          </div>
                 <!-- /.row -->
-				
+
 
 
             </div>
@@ -60,6 +65,14 @@
    		 </div>
 		</div>
 	</div>
+        <script src="assets/js/jquery.js"></script>
 
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Morris Charts JavaScript -->
+    <script src="assets/js/plugins/morris/raphael.min.js"></script>
+    <script src="assets/js/plugins/morris/morris.min.js"></script>
+    <script src="assets/js/plugins/morris/morris-data.js"></script>
+    </body>
 
 <?php include('footer.php'); ?>

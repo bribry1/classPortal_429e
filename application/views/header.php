@@ -14,9 +14,13 @@
     <link href="assets/css/sb-admin.css" rel="stylesheet">
     <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+        
+<!-- <script src="assets/js/plugins/morris/raphael.min.js"></script>
+<script src="assets/js/plugins/morris/morris.min.js"></script>
+<script src="assets/js/plugins/morris/morris-data.js"></script> -->
+
     <title><?php echo doTitle($pageTitle);?></title>
 </head>
-<body>
 <body>
 
     <div id="wrapper">
@@ -24,9 +28,8 @@
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">Class Portal</a>
+                <a class="navbar-brand" href="">Class Portal</a>
             </div>
-					<?php include('sidebar.php');?>
 		</nav>
         <div id="page-wrapper">
 

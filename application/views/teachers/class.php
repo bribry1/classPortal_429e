@@ -1,11 +1,17 @@
-<?php   $pageTitle = 'homeAdminssPage';
-        $pageContent = '';
+<?php
+
+foreach($class as $c)
+{
+	$classCode = $c->courseCode;
+}
+
+$pageTitle = $classCode;
+$pageContent = '';
 ?>
 
-?>
 <?php echo validation_errors(); ?>
 <?php echo form_open('LoginController/checkLogin'); ?>
-<?php include('header.php');?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/classPortal_429e/application/views/header.php');?>
 
 		<div>
 			<div>
@@ -37,20 +43,29 @@
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
-
             <!-- whiteArea -->
-
-
+                    <div class="col-lg-6">
+                        <div class="table-responsive">
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
 
 
 
             <!-- ENDOFwhiteArea -->
 
+
 			</div>
          </div>
                 <!-- /.row -->
+				
+
+
             </div>
             <!-- /.container-fluid -->
+
         </div>
         <!-- /#page-wrapper -->
 
@@ -58,4 +73,5 @@
 		</div>
 	</div>
 
-<?php include('footer.php'); ?>
+<?php include('teachers.js');?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/classPortal_429e/application/views/footer.php');?>

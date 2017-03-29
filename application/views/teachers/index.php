@@ -1,11 +1,10 @@
-<?php   $pageTitle = 'homeTeachersPage';
+<?php   $pageTitle = 'Home';
         $pageContent = '';
 ?>
 
-?>
 <?php echo validation_errors(); ?>
 <?php echo form_open('LoginController/checkLogin'); ?>
-<?php include('header.php');?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/classPortal_429e/application/views/header.php');?>
 
 		<div>
 			<div>
@@ -38,64 +37,55 @@
             </div>
             <!-- /.navbar-collapse -->
             <!-- whiteArea -->
-            <div class="col-lg-6">
-                        <h2>Striped Rows</h2>
+                    <div class="col-lg-6">
                         <div class="table-responsive">
-                            <table class="table table-hover table-striped">
+                            <table class="table table-hover table-striped" id="classes">
                                 <thead>
                                     <tr>
                                         <th>Classes</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>/index.html</td>
-                                        <td>1265</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/about.html</td>
-                                        <td>261</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/sales.html</td>
-                                        <td>665</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog.html</td>
-                                        <td>9516</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/404.html</td>
-                                        <td>23</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/services.html</td>
-                                        <td>421</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog/post.html</td>
-                                        <td>1233</td>
-                                    </tr>
+                                <tbody style="cursor:pointer">
+                                    <?php
+									foreach($classes as $c)
+									{
+										echo '<tr onclick="goToClass()"><td>'.$c->courseCode.'</td><td>'.$c->classSchedule.'</td></tr>';
+										//echo '<form id="goToClassForm" action="index.php/home/classs" method="post">';
+										//echo '<input type="hidden" name="classId" value='.$c->id.'>';
+										//echo '</form>';
+										$hidden = array('classId' => $c->id);
+										echo form_open('home/classs', 'id="goToClassForm"', $hidden);
+										echo form_close();
+									}
+									?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
+                </div>
                 <!-- /.row -->
+
 
 
             <!-- ENDOFwhiteArea -->
 
+
+			</div>
          </div>
                 <!-- /.row -->
 				
 
+
             </div>
             <!-- /.container-fluid -->
 
+        </div>
         <!-- /#page-wrapper -->
 
+   		 </div>
 		</div>
 	</div>
 
-<?php include('footer.php'); ?>
+<?php include('teachers.js');?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/classPortal_429e/application/views/footer.php');?>

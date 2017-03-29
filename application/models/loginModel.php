@@ -2,23 +2,17 @@
 
 class LoginModel extends CI_Model{
 
-	public function login($username, $password){
-	$studentsdb=$this->db;
+	function can_login($username, $password){
 
-	$studentsdb->select('username, password');
-	$studentsdb->from('students');
-	$studentsdb->where('username', $username);
-	$studentsdb->where('password', $password);
+	$this->db->where('username', $username);
+	$this->db->where('password', $password);
 
-	$query = $studentsdb->get();
+	$query = $this->db->get('students');
 
-	if ($query->num_rows() == 1){
+	if ($query->num_rows() > 0){
 		return true;
-	else{
+	}else{
 		return false;
 		}
 	}
-
-	}
 }
-?>
